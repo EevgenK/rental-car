@@ -1,0 +1,44 @@
+.section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    image-set(
+      url('../../assets/hero_bg.jpg') 1x,
+      url('../../assets/hero_bg@2x.jpg') 2x
+    );
+  height: 700px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  color: var(--white);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  margin-bottom: 40px;
+}
+
+.link {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 99px;
+  background-color: var(--button);
+  margin-bottom: 60px;
+  transition: background-color var(--transition);
+  &:hover,
+  &:focus {
+    background-color: var(--button-hover);
+  }
+}

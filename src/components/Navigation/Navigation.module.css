@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  gap: 32px;
+}
+.link {
+  transition: color var(--transition);
+}
+.link:hover,
+.link:focus {
+  color: var(--button-hover);
+}
+.link:global(.active) {
+  color: var(--button-hover);
+}
