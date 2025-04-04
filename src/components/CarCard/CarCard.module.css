@@ -1,0 +1,78 @@
+.card {
+  width: 276px;
+}
+
+.background {
+  position: relative;
+  display: inline-block;
+  height: 268px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  z-index: 1;
+}
+.background::after {
+  content: '';
+  position: absolute;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  pointer-events: none; /* щоб клік проходив до картинки */
+}
+
+.photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.favorite {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  z-index: 2;
+  color: transparent;
+  stroke: var(--white);
+}
+.liked {
+  color: var(--button);
+  stroke: var(--button);
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+  margin-bottom: 8px;
+}
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  & span {
+    color: var(--button);
+  }
+}
+.features {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.features li:not(:last-child)::after {
+  content: '|';
+  width: 2px;
+  height: 16px;
+  color: var(--gray-light);
+  margin-left: 6px;
+}

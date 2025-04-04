@@ -1,0 +1,7 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 48px 32px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}

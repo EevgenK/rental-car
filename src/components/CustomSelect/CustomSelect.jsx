@@ -6,7 +6,7 @@ const CustomSelect = ({ label, name, placeholder, setFieldValue, options }) => {
   //   const [selectedValue, setSelectedValue] = useState('');
 
   const [openSelect, setIsOpen] = useState(false);
-  const selects = options.map((el) => (
+  const selects = options?.map((el) => (
     <option key={el} value={el}>
       {el}
     </option>

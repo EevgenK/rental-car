@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import s from './HomePage.module.css';
+import Button from '../../components/Button/Button';
 
 const HomePage = () => {
   return (
@@ -8,9 +8,7 @@ const HomePage = () => {
       <h2 className={s.subtitle}>
         Reliable and budget-friendly rentals for any journey
       </h2>
-      <Link className={s.link} to="catalog">
-        View Catalog
-      </Link>
+      <Button text="View Catalog" link="catalog" />
     </section>
   );
 };

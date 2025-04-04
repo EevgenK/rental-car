@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 16px;
   align-items: end;
+  margin-bottom: 56px;
 }
 .label {
   position: relative;

@@ -11,6 +11,7 @@
   justify-content: end;
   align-items: center;
   color: var(--white);
+  padding-bottom: 60px;
 }
 
 .title {
@@ -25,20 +26,4 @@
   font-size: 24px;
   line-height: 1.33;
   margin-bottom: 40px;
-}
-
-.link {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  padding: 12px 99px;
-  background-color: var(--button);
-  margin-bottom: 60px;
-  transition: background-color var(--transition);
-  &:hover,
-  &:focus {
-    background-color: var(--button-hover);
-  }
 }

@@ -1,26 +1,45 @@
 import { Field, Form, Formik } from 'formik';
 import s from './FilterForm.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import CustomInput from '../CustomInput/CustomInput';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectCarBrands,
+  selectCarPricesMemo,
+} from '../../redux/carBrands/selectors';
+import { fetchCarBrands } from '../../redux/carBrands/opreations';
+import { setFilters, resetFilter } from '../../redux/filters/slice';
+import { selectFilter } from '../../redux/filters/selectors';
+import { fetchCars } from '../../redux/cars/operations';
+
 const initialValues = {
   brand: '',
   rentalPrice: '',
-  mileageFrom: '',
-  mileageTo: '',
+  minMileage: '',
+  maxMileage: '',
 };
-const brands = ['BMW', 'Tesla', 'Audi', 'Chevrolet'];
-const prices = ['30', '40', '50', '60', '70', '80'];
+
 const FilterForm = () => {
-  const [openSelect, setOpenSelect] = useState(null);
-  const toggleOpen = (selectName) => {
-    setOpenSelect((prev) => (prev === selectName ? null : selectName));
+  const brands = useSelector(selectCarBrands);
+  const prices = useSelector(selectCarPricesMemo);
+  const filters = useSelector(selectFilter);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCarBrands());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchCars(filters));
+  }, [filters, dispatch]);
+
+  const handleSearch = (values) => {
+    dispatch(resetFilter());
+    dispatch(setFilters(values));
   };
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={(values) => console.log(values)}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSearch}>
       {({ setFieldValue }) => (
         <Form className={s.form}>
           <CustomSelect
