@@ -1,0 +1,16 @@
+.title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.listItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../utils/api';
-import { boolean } from 'yup';
 
 export const fetchCars = createAsyncThunk(
   'carsList/fetchCars',

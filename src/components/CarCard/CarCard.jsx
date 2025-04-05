@@ -14,7 +14,7 @@ const CarCard = ({ car }) => {
   const toggleLike = () => {
     dispatch(setFavorites(car.id));
   };
-  const location = car.address.split(',');
+  const location = car?.address?.split(',') || [];
 
   return (
     <li className={s.card}>
@@ -23,7 +23,7 @@ const CarCard = ({ car }) => {
           onClick={toggleLike}
           className={clsx(s.favorite, liked && s.liked)}
         >
-          <use href="/icons/sprite.svg#icon-liked" />
+          <use href="/icons/sprite.svg#icon-liked" loading="lazy" />
         </svg>
         <img className={s.photo} src={car?.img} alt="car photo" />
       </div>
@@ -44,7 +44,7 @@ const CarCard = ({ car }) => {
         <li className={s.detail}>{formatRegister(car?.type)}</li>
         <li className={s.detail}>{formatMilage(car?.mileage)}</li>
       </ul>
-      <Button link="catalog/:id" text="Read more" />
+      <Button link={`/catalog/${car.id}`} text="Read more" />
     </li>
   );
 };

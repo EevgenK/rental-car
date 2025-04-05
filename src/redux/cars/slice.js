@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars, fetchMoreCars } from './operations';
 
 const initialState = {
@@ -47,5 +47,5 @@ const slice = createSlice({
       });
   },
 });
-
+export const { resetCars } = slice.actions;
 export const carsReducer = slice.reducer;

@@ -1,0 +1,61 @@
+.section {
+  margin-top: 84px;
+  margin-bottom: 104px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 640px);
+  gap: 72px;
+}
+
+.details {
+  padding-top: 20px;
+}
+.img {
+  margin-bottom: 40px;
+  border-radius: 19px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  margin-bottom: 8px;
+  & span {
+    margin-left: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray);
+  }
+}
+.address {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  & span {
+    margin-left: 16px;
+  }
+}
+.icon {
+  margin-right: 4px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+  margin-bottom: 32px;
+}
+.description {
+  margin-bottom: 68px;
+}
+.rent_lists {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}

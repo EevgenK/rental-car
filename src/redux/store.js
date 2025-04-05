@@ -15,11 +15,12 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import { favoritesReducer } from './favorites/slice';
+import { carDescriptionReducer } from './carDescription/slice';
 
 const favoritesPersistConfig = {
   key: 'favorites',
   storage,
-  whitelist: ['favorites'],
+  whitelist: ['favorites  '],
 };
 const persistedReducerFavorites = persistReducer(
   favoritesPersistConfig,
@@ -32,6 +33,7 @@ export const store = configureStore({
     carsList: carsReducer,
     filters: filtersReducer,
     favorites: persistedReducerFavorites,
+    carDescription: carDescriptionReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

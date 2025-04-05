@@ -1,0 +1,63 @@
+.input {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 12px;
+  color: var(--gray);
+  padding: 12px 20px;
+  background: var(--inputs);
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+  &::placeholder {
+    color: var(--gray);
+  }
+}
+.calendar {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  background-color: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--button);
+  overflow: hidden;
+}
+
+.day {
+  width: 32px;
+  height: 28px;
+  text-align: center;
+  border-radius: 50%;
+  transition: background-color var(--transition);
+}
+.calendar .day:hover,
+.calendar .day:focus {
+  background-color: var(--button);
+  border-radius: 50%;
+}
+
+.calendar :global(.react-datepicker__day--selected) {
+  background-color: var(--button);
+}
+.calendar :global(.react-datepicker__navigation-icon::before) {
+  border-color: var(--button);
+}
+.calendar :global(.react-datepicker__header) {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--gray);
+  border-bottom-color: var(--button);
+}
+
+.datePickerPopper > :global(.react-datepicker__triangle) {
+  color: var(--button) !important;
+}
+:global(.react-datepicker-wrapper) {
+  width: 100%;
+}
