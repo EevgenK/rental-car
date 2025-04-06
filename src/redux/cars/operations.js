@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../utils/api';
+import toast from 'react-hot-toast';
 
 export const fetchCars = createAsyncThunk(
   'carsList/fetchCars',
@@ -14,7 +15,12 @@ export const fetchCars = createAsyncThunk(
       } = await instance.get('/cars', {
         params: { limit: 12, ...filterParams },
       });
-
+      if (!cars.length) {
+        toast(
+          `There are no cars matching your search criteria. Please try again.`,
+        );
+        return thunkAPI.rejectWithValue('No cars found');
+      }
       return { cars, totalPages, page };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

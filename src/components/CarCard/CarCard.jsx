@@ -41,8 +41,11 @@ const CarCard = ({ car }) => {
         <li className={s.detail}>{location[2]}</li>
         <li className={s.detail}>{car?.rentalCompany}</li>
 
-        <li className={s.detail}>{formatRegister(car?.type)}</li>
-        <li className={s.detail}>{formatMilage(car?.mileage)}</li>
+        <div className={s.details}>
+          {' '}
+          <li className={s.detail}>{formatRegister(car?.type)}</li>
+          <li className={s.detail}>{formatMilage(car?.mileage)}</li>
+        </div>
       </ul>
       <Button link={`/catalog/${car.id}`} text="Read more" />
     </li>

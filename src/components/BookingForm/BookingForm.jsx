@@ -14,7 +14,6 @@ const initialValues = {
 };
 const BookingForm = () => {
   const onHandleSubmit = (values, action) => {
-    console.log(values);
     action.resetForm();
     toast.success(`Dear ${values.name}, your booking  is confirmed!`);
   };

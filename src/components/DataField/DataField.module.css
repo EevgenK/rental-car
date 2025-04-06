@@ -46,18 +46,35 @@
 }
 .calendar :global(.react-datepicker__navigation-icon::before) {
   border-color: var(--button);
+  transition: border-color var(--transition);
+}
+
+.calendar
+  :global(
+    .react-datepicker__navigation:hover
+      .react-datepicker__navigation-icon::before
+  ) {
+  border-color: var(--button-hover);
 }
 .calendar :global(.react-datepicker__header) {
   font-weight: 600;
   font-size: 12px;
   line-height: 1.2;
-  color: var(--gray);
+  background-color: var(--white);
   border-bottom-color: var(--button);
+}
+.calendar :global(.react-datepicker__day-name) {
+  color: var(--gray);
 }
 
 .datePickerPopper > :global(.react-datepicker__triangle) {
-  color: var(--button) !important;
+  stroke: var(--button);
+  fill: var(--white) !important;
 }
 :global(.react-datepicker-wrapper) {
   width: 100%;
+}
+
+.calendar :global(.react-datepicker__day--outside-month) {
+  color: var(--gray);
 }

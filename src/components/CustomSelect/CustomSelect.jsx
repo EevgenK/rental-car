@@ -1,43 +1,41 @@
-import { Field } from 'formik';
-import s from './CustomSelect.module.css';
+import Select from 'react-select';
 import { useState } from 'react';
+import s from './CustomSelect.module.css';
+import CustomArrowIcon from '../CustomArrowIcon/CustomArrowIcon';
 
 const CustomSelect = ({ label, name, placeholder, setFieldValue, options }) => {
-  //   const [selectedValue, setSelectedValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [openSelect, setIsOpen] = useState(false);
-  const selects = options?.map((el) => (
-    <option key={el} value={el}>
-      {el}
-    </option>
-  ));
-  const toggleOpen = () => setIsOpen((prev) => !prev);
+  const handleChange = (selected) => {
+    setSelectedOption(selected);
+    const value = selected.value;
+    const displayValue = name === 'brand' ? value : `To $ ${value}`;
+    setFieldValue(name, value);
+    setSelectedOption({ label: displayValue, value });
+  };
+
+  const selectOptions = options.map((el) => ({ label: el, value: el }));
+
   return (
-    <>
-      <label htmlFor={name} className={s.label}>
-        {label}
-        <Field
-          id={name}
-          onClick={() => toggleOpen(name)}
-          as="select"
-          name={name}
-          // value={selectedValue}
-          onChange={(e) => {
-            //   setSelectedValue(e.target.value);
-            setFieldValue(name, e.target.value);
-          }}
-          className={s.select}
-        >
-          <option value="" disabled hidden>
-            {placeholder}
-          </option>
-          {selects}
-        </Field>
-        <svg className={`${s.icon} ${openSelect ? s.iconOpen : ''}`}>
-          <use href="/icons/sprite.svg#icon-arrow-down"></use>
-        </svg>
-      </label>
-    </>
+    <label className={s.label}>
+      {label}
+      <Select
+        name={name}
+        value={selectedOption}
+        onChange={handleChange}
+        options={selectOptions}
+        placeholder={placeholder}
+        classNamePrefix="custom"
+        className={s.selectWrapper}
+        onMenuOpen={() => setIsOpen(true)}
+        onMenuClose={() => setIsOpen(false)}
+        components={{
+          IndicatorSeparator: () => null,
+          DropdownIndicator: () => <CustomArrowIcon isOpen={isOpen} />,
+        }}
+      />
+    </label>
   );
 };
 

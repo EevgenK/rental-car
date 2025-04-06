@@ -20,5 +20,8 @@
 .load:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  background-color: var(--gray-light);
+  border-color: var(--gray);
+  color: var(--badges);
   opacity: 0.5;
 }

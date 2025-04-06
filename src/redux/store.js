@@ -20,7 +20,7 @@ import { carDescriptionReducer } from './carDescription/slice';
 const favoritesPersistConfig = {
   key: 'favorites',
   storage,
-  whitelist: ['favorites  '],
+  whitelist: ['favorites'],
 };
 const persistedReducerFavorites = persistReducer(
   favoritesPersistConfig,
